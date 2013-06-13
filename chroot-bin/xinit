@@ -32,4 +32,9 @@ while [ -f "/tmp/.X$disp-lock" ]; do
     disp=$((disp+1))
 done
 
+echo
+echo "VNC server launched on display $disp."
+echo "chrome-extension://iabmpiboiopbgfabjmgeedhcmjenhbla/index.html#address=localhost:$disp"
+echo
+
 exec /usr/bin/xinit /usr/local/bin/croutonxinitrc-wrapper "$@" $dash $xserverrc ":$disp"

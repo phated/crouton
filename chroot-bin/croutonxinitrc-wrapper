@@ -44,7 +44,9 @@ fi
 # Run crouton-specific commands:
 
 # Launch the powerd poker daemon
-croutonpowerd --daemon &
+if hash croutonpowerd 2>/dev/null; then
+    croutonpowerd --daemon &
+fi
 
 # Launch the cursor relayer and keyboard shortcuts if in xephyr
 if [ -r "/etc/X11/host-Xauthority" ]; then
